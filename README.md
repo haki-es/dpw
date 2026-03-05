@@ -7,9 +7,9 @@ People can call me Haki or Dewaaa <br>
 I am 19 y.o <br>
 I am 10% British <br>
 
-Student Politeknik Negeri Madiun
-253307013
-2A
+Student Politeknik Negeri Madiun <br>
+253307013<br>
+2A<br>
 
 #Social Media
 
