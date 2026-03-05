@@ -2,13 +2,17 @@
 
 #About Me (About You nya kapan?)
 
-My Name Is Haki E S
-People can call me Haki or Dewaaa
-I am 19 y.o
-I am 10% British
+My Name Is Haki E S <br>
+People can call me Haki or Dewaaa <br>
+I am 19 y.o <br>
+I am 10% British <br>
+
+Student Politeknik Negeri Madiun
+253307013
+2A
 
 #Social Media
 
-My Instagram https://www.instagram.com/a.dewaaa_
-Facebook - Tidak Punya
-Tiktok - Rahasia
+My Instagram https://www.instagram.com/a.dewaaa_ <br>
+Facebook - Tidak Punya <br>
+Tiktok - Rahasia <br>
