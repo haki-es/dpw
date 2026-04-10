@@ -2,6 +2,8 @@
 
 ##About Me (About You nya kapan?)
 
+<img src="fotoku.jpg" alt="Foto Profil" width="150">
+
 #My Name Is Haki E S <br>
 #People can call me Haki or Dewaaa <br>
 #I am 18 y.o <br>
