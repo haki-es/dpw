@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Template Web CSS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f0;
+    }
+
+    #header {
+      background-color: blue;
+      color: white;
+      padding: 15px 20px;
+      width: 100%;
+    }
+
+    #header h1 {
+      font-size: 28px;
+      color: yellow;
+    }
+
+    #header p {
+      font-size: 13px;
+      color: white;
+    }
+
+    #container {
+      display: flex;
+      width: 100%;
+    }
+
+    #sidebar {
+      width: 200px;
+      min-height: 300px;
+      border: 2px dashed #555;
+      padding: 15px;
+      flex-shrink: 0;
+    }
+
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #sidebar ul li {
+      padding: 5px 0;
+    }
+
+    #sidebar ul li a {
+      text-decoration: none;
+      color: black;
+    }
+
+    #sidebar ul li a:hover {
+      text-decoration: underline;
+      color: blue;
+    }
+
+    #divider {
+      width: 2px;
+      background-color: #999;
+      min-height: 300px;
+    }
+
+    #main-content {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #main-content img {
+      width: 80px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    #main-content h2 {
+      font-size: 36px;
+      font-weight: bold;
+      color: black;
+    }
+
+    #main-content h3 {
+      font-size: 18px;
+      font-weight: normal;
+      color: black;
+      margin-bottom: 15px;
+    }
+
+    #main-content p {
+      color: blue;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    #footer {
+      background-color: #d0d0d0;
+      text-align: right;
+      padding: 10px 20px;
+      font-size: 13px;
+      color: #333;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header">
+    <h1>Selamat datang!</h1>
+    <p>welcome to the politeknik negeri madiun :)</p>
+  </div>
+
+  <div id="container">
+
+    <div id="sidebar">
+      <ul>
+        <li><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 2</a></li>
+        <li><a href="#">Menu 3</a></li>
+        <li><a href="#">Menu 4</a></li>
+        <li><a href="#">Menu 5</a></li>
+        <li><a href="#">Menu 6</a></li>
+      </ul>
+    </div>
+
+    <div id="divider"></div>
+
+    <div id="main-content">
+      <img src="https://assets.siakadcloud.com/uploads/pnm/logoaplikasi/1124.jpg">
+      <h2>TI</h2>
+      <h3>Politeknik Negeri Madiun</h3>
+      <p>
+        Mewujudkan pendidikan tinggi vokasi dalam bidang<br>
+        Teknologi Informasi dan penerapannya yang berkualitas,<br>
+        inovatif dan berdaya saing Nasional.
+      </p>
+    </div>
+
+  </div>
+
+  <div id="footer">
+    Haki Eko Saputra | 253307013 | TI-2A
+  </div>
+
+</body>
+</html>

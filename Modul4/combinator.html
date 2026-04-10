@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Combinator Selector</title>
+  <style>
+    div p { 
+      color: red;
+    }
+
+    div > p { 
+      background-color: yellow;
+    }
+
+    div + p { 
+      background-color: darkgray;
+    }
+
+    div ~ p {
+      color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Paragraf ini berada di dalam div aehingga warna teks menjadi merah, selektor no 2 (div &gt; p): paragraf ini adalah anak LANGSUNG dari div, sehingga background menjadi kuning.</p>
+    <p>Paragraf ini juga berada DI DALAM div, warna teks merah. Selektor no 2 (div &gt; p): juga anak langsung div, background kuning.</p>
+  </div>
+  <p>Paragraf ini berada TEPAT SETELAH div, background menjadi darkgray. Selektor no 4 (div ~ p): paragraf ini adalah saudara dari div, warna teks cyan.</p>
+  <p>Paragraf ini juga saudara dari div (bukan tepat setelah), hanya terkena selektor no 4 saja, warna teks cyan.</p>
+</body>
+</html>

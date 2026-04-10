@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pseudo-class Selectors</title>
+  <style>
+    p {
+      display: none;
+      background-color: darkgray;
+      padding: 20px;
+    }
+
+    div:hover p { 
+      display: block;
+    }
+
+    a:link {
+      color: blue;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: purple;
+    }
+
+    a:hover {
+      color: red;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    a:active {
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pseudo-class :hover pada div</h2>
+  <div>Nama
+    <p>Haki Eko Saputra</p>
+  </div>
+
+  <h2>Pseudo-class pada Link</h2>
+  <p style="display:block; background-color:transparent; padding:5px;">
+    <a href="#">Klik!</a>
+  </p>
+  <p style="display:block; background-color:transparent; padding:5px;">
+    <a href="https://www.example.com">Link Visited!</a>
+  </p>
+</body>
+</html>
