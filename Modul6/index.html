@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NATOinfo - Beranda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --nato-blue: #003087;
+      --nato-dark: #001a4d;
+      --nato-accent: #c8a84b;
+    }
+    body { font-family: Georgia, serif; }
+    .navbar-custom { background: var(--nato-dark); }
+    .hero {
+      background: linear-gradient(135deg, var(--nato-dark) 0%, var(--nato-blue) 60%, #1a5276 100%);
+      min-height: 88vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-title { font-size: 3.2rem; font-weight: 900; letter-spacing: -1px; }
+    .accent-line { width: 60px; height: 4px; background: var(--nato-accent); border-radius: 2px; }
+    .card-article { transition: transform 0.25s, box-shadow 0.25s; border: none; }
+    .card-article:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important; }
+    /* Ikon dihapus dari CSS karena elemennya sudah tidak ada di HTML */
+    .section-title { font-weight: 800; color: var(--nato-dark); }
+    .badge-nato { background: var(--nato-blue); }
+    footer { background: var(--nato-dark); }
+    .nav-link:hover { color: var(--nato-accent) !important; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom navbar-dark sticky-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+      <div style="background:var(--nato-accent);width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+        <i class="bi bi-globe2 text-dark" style="font-size:1.1rem;"></i>
+      </div>
+      <span>NATO<span style="color:var(--nato-accent);">Info</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link active fw-semibold" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="sejarah.html">Sejarah</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="struktur.html">Struktur</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="anggota.html">Anggota</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="operasi.html">Operasi</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero text-white">
+  <div class="container position-relative">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <span class="badge badge-nato text-white mb-3 px-3 py-2">
+          North Atlantic Treaty Organization
+        </span>
+        <h1 class="hero-title mb-3">Mengenal NATO:<br>Aliansi Pertahanan<br><span style="color:var(--nato-accent);">Terkuat di Dunia</span></h1>
+        <p class="lead mb-4 opacity-75" style="font-family:sans-serif; font-size:1.05rem;">
+          NATO adalah aliansi militer antar-pemerintah yang didirikan pada tahun 1949.
+        </p>
+        <div>
+          <a href="sejarah.html" class="btn btn-warning fw-bold px-4 py-2">Sejarah</a>
+          <a href="anggota.html" class="btn btn-warning fw-bold px-4 py-2">Anggota</a>
+        </div>
+        <div class="mt-4 p-3 rounded-3 d-inline-block" style="background:rgba(255,255,255,0.1); font-family:sans-serif;">
+          <small><strong>Nama:</strong> Haki Eko Saputra &nbsp;|&nbsp; <strong>NIM:</strong> 253307013</small>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
+        <div style="width:280px;height:280px;border:3px solid rgba(200,168,75,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <div style="width:220px;height:220px;border:2px solid rgba(200,168,75,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <i class="bi bi-globe-americas" style="font-size:8rem;color:rgba(200,168,75,0.6);"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 bg-light border-bottom">
+  <div class="container">
+    <div class="row g-3 text-center">
+      <div class="col-6 col-md-3">
+        <h3 class="fw-black mb-0" style="color:var(--nato-blue); font-weight:900;">32</h3>
+        <small class="text-muted" style="font-family:sans-serif;">Negara Anggota</small>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3 class="fw-black mb-0" style="color:var(--nato-blue); font-weight:900;">1949</h3>
+        <small class="text-muted" style="font-family:sans-serif;">Tahun Berdiri</small>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3 class="fw-black mb-0" style="color:var(--nato-blue); font-weight:900;">3,5 M</h3>
+        <small class="text-muted" style="font-family:sans-serif;">Personel Aktif</small>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3 class="fw-black mb-0" style="color:var(--nato-blue); font-weight:900;">$1,3 T</h3>
+        <small class="text-muted" style="font-family:sans-serif;">Anggaran Gabungan</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="mb-5">
+      <h2 class="section-title mb-2">Topik Utama</h2>
+      <div class="accent-line"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <a href="sejarah.html" class="text-decoration-none">
+          <div class="card card-article shadow-sm h-100 p-3">
+            <h5 class="fw-bold text-dark">Sejarah NATO</h5>
+            <p class="text-muted small" style="font-family:sans-serif;">Dari Perang Dingin hingga era modern. Bagaimana NATO lahir dan berkembang selama 75 tahun.</p>
+            <span class="text-primary small fw-semibold">Baca selengkapnya →</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="struktur.html" class="text-decoration-none">
+          <div class="card card-article shadow-sm h-100 p-3">
+            <h5 class="fw-bold text-dark">Struktur Organisasi</h5>
+            <p class="text-muted small" style="font-family:sans-serif;">Hierarki kepemimpinan NATO, dari Sekretaris Jenderal hingga komando militer.</p>
+            <span class="text-success small fw-semibold">Baca selengkapnya →</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="anggota.html" class="text-decoration-none">
+          <div class="card card-article shadow-sm h-100 p-3">
+            <h5 class="fw-bold text-dark">Negara Anggota</h5>
+            <p class="text-muted small" style="font-family:sans-serif;">32 negara anggota NATO beserta tahun bergabung dan kontribusinya dalam aliansi.</p>
+            <span class="text-warning small fw-semibold">Baca selengkapnya →</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="operasi.html" class="text-decoration-none">
+          <div class="card card-article shadow-sm h-100 p-3">
+            <h5 class="fw-bold text-dark">Operasi & Misi</h5>
+            <p class="text-muted small" style="font-family:sans-serif;">Misi-misi penting NATO di seluruh dunia, dari Bosnia hingga Afghanistan.</p>
+            <span class="text-danger small fw-semibold">Baca selengkapnya →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" style="background: var(--nato-dark);">
+  <div class="container text-center text-white">
+    <p class="mb-3" style="max-width:700px; margin:0 auto; font-family:sans-serif; font-size:1.5rem; font-weight:normal;">
+      "An attack against one Ally is considered as an attack against all Allies."
+    </p>
+    <small style="color:var(--nato-accent); font-family:sans-serif;">Perjanjian Atlantik Utara, 1949</small>
+  </div>
+</section>
+
+<footer class="py-4 text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+        <strong>NATOInfo</strong> — Artikel Informatif tentang NATO
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <small class="text-secondary" style="font-family:sans-serif;">Nama: Haki Eko Saputra | NIM: 253307013</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
