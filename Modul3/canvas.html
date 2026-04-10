@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Halaman Canvas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Haki Eko Saputra">
+  <meta name="nim" content="253307013">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; }
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+    nav {
+      float: left;
+      width: 30%;
+      background: #ccc;
+      padding: 20px;
+      min-height: 500px;
+    }
+    nav ul { list-style-type: none; padding: 0; }
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      min-height: 500px;
+    }
+    section::after { content: ""; display: table; clear: both; }
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    .kesimpulan {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e8f4f8;
+      border-left: 4px solid #2196F3;
+    }
+    @media (max-width: 600px) {
+      nav, article { width: 100%; height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Judul Website</h2>
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gambar.html">Gambar</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="svg.html">SVG</a></li>
+        <li><a href="canvas.html">Canvas</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h1>Canvas HTML5</h1>
+
+      <canvas id="canvas" width="400" height="400" style="background-color:#333">
+      </canvas>
+
+      <div class="kesimpulan">
+        <strong>Kesimpulan:</strong><br>
+        Elemen canvas HTML menyediakan area gambar dengan piksel yang dapat diubah menggunakan JavaScript, beda dengan SVG yang berbasis vektor, canvas 
+        menggunakan JavaScript untuk menggambar bentuk, teks, gambar, dan animasi.
+        kode JavaScript dipisahkan ke file js/main.js dan diupload dengan tag script src=js/main.js  di bagian akhir badan.
+        fengan eksplorasi ini, dapat menggambar berbagai bentuk seperti persegi, lingkaran, 
+        garis, teks, dan gradien menggunakan Canvas.
+        <br><br>
+        <strong>Nama:</strong> Haki Eko Saputra &nbsp;|&nbsp; <strong>NIM:</strong> 253307013
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <p>www.hakinewssince2026.com</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

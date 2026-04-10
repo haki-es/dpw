@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Halaman Video</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Haki Eko Saputra">
+  <meta name="nim" content="253307013">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; }
+    header {
+      background-color: #0000ff;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+    nav {
+      float: left;
+      width: 30%;
+      background: #ccc;
+      padding: 20px;
+      min-height: 400px;
+    }
+    nav ul { list-style-type: none; padding: 0; }
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      min-height: 400px;
+    }
+    section::after { content: ""; display: table; clear: both; }
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    .kesimpulan {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e8f4f8;
+      border-left: 4px solid #2196F3;
+    }
+    @media (max-width: 600px) {
+      nav, article { width: 100%; height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Judul Website</h2>
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gambar.html">Gambar</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="svg.html">SVG</a></li>
+        <li><a href="canvas.html">Canvas</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h1>Pemutar Video</h1>
+
+      <p><strong>Video Lokal (jogging):</strong></p>
+      <video width="420" height="315" controls muted autoplay>
+        <source src="dpw/pic/" type="video/mp4">
+        Browser tidak mendukung.
+      </video>
+
+      <div class="kesimpulan">
+        <strong>Kesimpulan Video Lokal:</strong><br>Video lokal berfungsi untuk menampilkan file video di halaman web, dengan atribut untuk mengatur kontrol, pemutaran otomatis, dan sumber video.
+        Atribut <code>controls</code> 
+      </div>
+
+      <br>
+      <p><strong>Video YouTube :</strong></p>
+      <iframe width="420" height="315"
+              src="https://www.youtube.com/embed/Ls-H7lr-kxk">
+      </iframe>
+
+      <div class="kesimpulan">
+        <strong>Kesimpulan iframe YouTube:</strong><br>berfungsi untuk menampilkan video YouTube di halaman web dengan menggunakan URL khusus embed pada atribut src.
+        tag <code>&lt;iframe&gt;</code> 
+        <br><br>
+        <strong>Nama:</strong> Haki Eko Saputra &nbsp;|&nbsp; <strong>NIM:</strong> 253307013
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <p>www.hakinewssince2026.com</p>
+  </footer>
+</body>
+</html>

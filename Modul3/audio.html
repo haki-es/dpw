@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Halaman Audio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Haki Eko Saputra">
+  <meta name="nim" content="253307013">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; }
+    header {
+      background-color: #0000ff;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+    nav {
+      float: left;
+      width: 30%;
+      background: #ccc;
+      padding: 20px;
+      min-height: 300px;
+    }
+    nav ul { list-style-type: none; padding: 0; }
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      min-height: 300px;
+    }
+    section::after { content: ""; display: table; clear: both; }
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    .kesimpulan {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e8f4f8;
+      border-left: 4px solid #2196F3;
+    }
+    @media (max-width: 600px) {
+      nav, article { width: 100%; height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>TES AUDIO</h2>
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gambar.html">Gambar</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="svg.html">SVG</a></li>
+        <li><a href="canvas.html">Canvas</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h1>Pemutar Audio</h1>
+
+      <p><strong>Audio 1 (dengan controls):</strong></p>
+      <audio controls>
+        <source src="<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/id/song/ada-titik-titik-di-ujung-doa/1737267776?l=id"></iframe>" type="audio/mpeg">
+        Browser tidak mendukung pemutar audio.
+      </audio><br>
+
+      <p><strong>Audio 2 (dengan controls dan autoplay muted):</strong></p>
+      <audio controls autoplay muted>
+        <source src="https://embed.music.apple.com/id/song/ada-titik-titik-di-ujung-doa/1737267776?l=id" type="audio/mpeg">
+        Browser tidak mendukung pemutar audio.
+      </audio>
+
+      <div class="kesimpulan">
+        <strong>Kesimpulan:</strong><br>
+        Atribut pada audio berfungsi untuk mengatur kontrol pemutar dan pemutaran otomatis, dengan penggunaan muted agar autoplay dapat berjalan di browser.
+        <br><br>
+        <strong>Nama:</strong> Haki Eko Saputra &nbsp;|&nbsp; <strong>NIM:</strong> 253307013
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <p>www.hakinewssince2026.com</p>
+  </footer>
+</body>
+</html>

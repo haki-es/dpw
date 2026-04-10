@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Form Penjadwal Pertemuan</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Haki Eko Saputra">
+  <meta name="nim" content="253307013">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; }
+    header {
+      background-color: #0000ff;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+    nav {
+      float: left;
+      width: 30%;
+      background: #ccc;
+      padding: 20px;
+      min-height: 600px;
+    }
+    nav ul { list-style-type: none; padding: 0; }
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      min-height: 600px;
+    }
+    section::after { content: ""; display: table; clear: both; }
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    /* Form styling */
+    h1 { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+
+    fieldset {
+      border: 1px solid #999;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      background: white;
+    }
+    legend {
+      font-size: 13px;
+      color: #555;
+      padding: 0 5px;
+    }
+    .form-row {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-row label {
+      min-width: 200px;
+      font-size: 14px;
+    }
+    .form-row input {
+      padding: 4px 6px;
+      font-size: 14px;
+      border: 1px solid #999;
+    }
+    input[type="range"] {
+      width: 150px;
+    }
+    .range-labels {
+      font-size: 12px;
+      color: #666;
+    }
+    input[type="submit"] {
+      padding: 5px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      nav, article { width: 100%; height: auto; }
+      .form-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Pendaftaran NATO</h2>
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gambar.html">Gambar</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="svg.html">SVG</a></li>
+        <li><a href="canvas.html">Canvas</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h1>Form Pengisian</h1>
+
+      <form action="#" method="post" id="formPendaftaran">
+
+
+        <fieldset>
+          <legend>Informasi Pribadi</legend>
+
+          <div class="form-row">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" name="nama"
+                   placeholder="Nama lengkap" required>
+          </div>
+
+          <div class="form-row">
+            <label for="telepon">No. Telepon</label>
+            
+            <input type="tel" id="telepon" name="telepon"
+                   pattern="[0-9]{4}-[0-9]{6}"
+                   placeholder="0812-345678"
+                   title="Format: XXXX-XXXXXX (contoh: 0812-345678)"
+                   required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" name="email"
+                   placeholder="nama@domain.com"
+                   required>
+          </div>
+
+          <div class="form-row">
+            <label for="tglLahir">Tanggal Lahir</label>
+            
+            <input type="date" id="tglLahir" name="tglLahir"
+                   min="1987-01-01"
+                   max="1993-01-01"
+                   required>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Permintaan Pertemuan</legend>
+
+          <div class="form-row">
+            <label for="tujuan">Tujuan Pertemuan</label>
+            <input type="text" id="tujuan" name="tujuan"
+                   placeholder="Isi tujuan pertemuan" required>
+          </div>
+
+          <div class="form-row">
+            <label for="kepentingan">Tingkat Kepentingan Pertemuan</label>
+            
+            <input type="range" id="kepentingan" name="kepentingan"
+                   min="0" max="10" step="1" value="5"
+                   oninput="document.getElementById('nilaiKepentingan').textContent = this.value">
+            <span id="nilaiKepentingan">5</span>
+            <span class="range-labels">(0=Tidak Penting, 10=Mendesak)</span>
+          </div>
+
+          <div class="form-row">
+            <label for="tanggal">Tanggal</label>
+            
+            <input type="date" id="tanggal" name="tanggal"
+                   required>
+          </div>
+
+          <div class="form-row">
+            <label for="waktu">Waktu</label>
+            
+            <input type="time" id="waktu" name="waktu"
+                   min="17:00" max="21:00"
+                   required>
+          </div>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+
+      </form>
+    </article>
+  </section>
+
+  <footer>
+    <p>www.hakinewssince2026.com
+    <br> Nama: Haki Eko Saputra | NIM: 253307013</p>
+  </footer>
+
+  <script>
+    
+    var today = new Date();
+    today.setDate(today.getDate() + 1);
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    var minDate = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('tanggal').setAttribute('min', minDate);
+  </script>
+</body>
+</html>

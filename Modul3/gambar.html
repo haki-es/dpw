@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Halaman Gambar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Haki Eko Saputta">
+  <meta name="nim" content="253307013">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    header {
+      background-color: #0000FF;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+    nav {
+      float: left;
+      width: 30%;
+      background: #ccc;
+      padding: 20px;
+      min-height: 300px;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      min-height: 300px;
+    }
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .gallery img {
+      width: 180px;
+      height: 130px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>NATO</h2>
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gambar.html">Gambar</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="svg.html">SVG</a></li>
+        <li><a href="canvas.html">Canvas</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h1>Picture from NATO Alliance</h1>
+      <div class="gallery">
+        <img src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2199867061.jpg?c=16x9&q=h_383,w_680,c_fill/f_avif" alt="Nato Personel">
+        <img src="https://www.eucom.mil/Img/42759/Large/nato-8" alt="Nato">
+        <img src="https://api.army.mil/e2/c/images/2023/05/30/99da8bd2/original.jpg" alt="Nato 2">
+        <img src="https://defence-industry.eu/wp-content/uploads/2023/06/Air-Defender-2023-the-largest-air-force-deployment-in-NATO-history-concluded.jpg" alt="Nato 3">
+        <img src="https://www.nato.int/content/dam/nato/legacy-wcm/media_images/images_mfu/2022/6/stock/220622-topic-readiness-action.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg" alt="Nato 4">
+        <img src="https://www.politico.eu/cdn-cgi/image/width=1280,quality=80,onerror=redirect,format=auto/wp-content/uploads/2023/03/15/GettyImages-1241758892.jpg" alt="Nato 5">
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <p>wwww.hakinewssincce2026.com</p>
+  </footer>
+</body>
+</html>

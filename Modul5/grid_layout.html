@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tes CSS Grid Box</title>
+    <style>
+        .tempat_grid {
+            display: grid; [span_16](start_span)/* Skenario 1[span_16](end_span) */
+            /* display: inline-grid; (Gunakan ini untuk file inline_grid.html - Skenario 2) [span_17](start_span) */
+            grid-template-columns: auto auto auto;[span_17](end_span)
+            background-color: #2196F3;
+            padding: 10px;
+            
+            [span_18](start_span)/* Skenario 3[span_18](end_span) */
+            /* grid-column-gap: 100px;
+            grid-row-gap: 50px; */
+
+            [span_19](start_span)/* Skenario 4: Shorthand[span_19](end_span) */
+            grid-gap: 50px; 
+        }
+        .item_grid {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            [span_20](start_span)text-align: center;[span_20](end_span)
+        }
+    </style>
+</head>
+<body>
+    <div class="tempat_grid">
+        <div class="item_grid">1</div>
+        <div class="item_grid">2</div>
+        <div class="item_grid">3</div>
+        <div class="item_grid">4</div>
+        <div class="item_grid">5</div>
+        <div class="item_grid">6</div>
+        <div class="item_grid">7</div>
+        <div class="item_grid">8</div>
+        <div class="item_grid">9</div>
+        <div class="item_grid">Kesimpulan: Grid membagi halaman menjadi kolom dan baris yang kaku.</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .main-layout {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "menu main right"
+                "menu footer footer";
+            grid-gap: 10px;
+            padding: 10px;
+        }
+        .header { grid-area: header; background: #ADD8E6; height: 100px; }
+        .menu   { grid-area: menu; background: #B0C4DE; width: 150px; }
+        .main   { grid-area: main; background: #E0FFFF; height: 200px; }
+        .right  { grid-area: right; background: #B0C4DE; }
+        .footer { grid-area: footer; background: #ADD8E6; }
+        
+        .box { display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid blue; }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="box header">Header</div>
+        <div class="box menu">Menu</div>
+        <div class="box main">Main</div>
+        <div class="box right">Right</div>
+        <div class="box footer">Footer</div>
+    </div>
+</body>
+</html>
+

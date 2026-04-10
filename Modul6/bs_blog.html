@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Bootstrap Tutorial</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    .page-header { background: linear-gradient(135deg, #fd7e14, #ffc107); color: white; padding: 60px 0; }
+    .blog-card { transition: box-shadow .2s; }
+    .blog-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.12)!important; }
+    .post-icon { height:160px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; }
+    .sidebar-widget { border-left: 4px solid #fd7e14; padding-left:14px; margin-bottom:24px; }
+    .footer-dark { background:#212529; color:#adb5bd; }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-bootstrap-fill me-2 text-primary"></i>BootstrapTutorial</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Blog & Tutorial</h1>
+    <p class="lead">Artikel seputar Bootstrap dan pengembangan web</p>
+    <span class="badge bg-dark fs-6">Nama: Haki ES &nbsp;|&nbsp; NIM: 253307013</span>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+
+        
+        <div class="card blog-card border-0 shadow-sm mb-4">
+          <div class="post-icon bg-primary text-white rounded-top"><i class="bi bi-grid-3x3-gap"></i></div>
+          <div class="card-body p-4">
+            <div class="d-flex gap-2 mb-2">
+              <span class="badge bg-primary">Grid</span>
+              <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>10 Jan 2024</span>
+            </div>
+            <h4 class="fw-bold">Memahami Grid System Bootstrap 5</h4>
+            <p class="text-muted">Grid system Bootstrap menggunakan serangkaian container, baris (row), dan kolom (col) untuk menata dan menyelaraskan konten. Bootstrap menggunakan flexbox dan memiliki 6 tier breakpoint responsif...</p>
+            <div class="bg-dark text-success rounded p-3 small font-monospace mb-3">
+              &lt;div class="container"&gt;<br>
+              &nbsp;&lt;div class="row"&gt;<br>
+              &nbsp;&nbsp;&lt;div class="col-md-6"&gt;Kolom 1&lt;/div&gt;<br>
+              &nbsp;&nbsp;&lt;div class="col-md-6"&gt;Kolom 2&lt;/div&gt;<br>
+              &nbsp;&lt;/div&gt;<br>
+              &lt;/div&gt;
+            </div>
+            <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="card blog-card border-0 shadow-sm mb-4">
+          <div class="post-icon bg-success text-white rounded-top"><i class="bi bi-card-heading"></i></div>
+          <div class="card-body p-4">
+            <div class="d-flex gap-2 mb-2">
+              <span class="badge bg-success">Komponen</span>
+              <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>15 Jan 2024</span>
+            </div>
+            <h4 class="fw-bold">Card Component di Bootstrap 5</h4>
+            <p class="text-muted">Bootstrap Card adalah komponen konten yang fleksibel dan dapat diperluas dengan berbagai pilihan header, footer, konten, warna, dan lainnya. Cocok untuk menampilkan artikel, produk, atau profil...</p>
+            <div class="row g-2 mb-3">
+              <div class="col-4"><div class="card bg-primary text-white text-center p-2 small">Card Primary</div></div>
+              <div class="col-4"><div class="card bg-success text-white text-center p-2 small">Card Success</div></div>
+              <div class="col-4"><div class="card bg-danger text-white text-center p-2 small">Card Danger</div></div>
+            </div>
+            <a href="#" class="btn btn-outline-success btn-sm">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="card blog-card border-0 shadow-sm mb-4">
+          <div class="post-icon bg-warning text-white rounded-top"><i class="bi bi-tools"></i></div>
+          <div class="card-body p-4">
+            <div class="d-flex gap-2 mb-2">
+              <span class="badge bg-warning text-dark">Utility</span>
+              <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>20 Jan 2024</span>
+            </div>
+            <h4 class="fw-bold">Utility Classes Bootstrap yang Wajib Diketahui</h4>
+            <p class="text-muted">Bootstrap menyediakan puluhan utility classes yang memungkinkan Anda mengatur margin, padding, warna, display, flexbox, dan banyak lagi langsung dari HTML tanpa menulis CSS tambahan...</p>
+            <div class="d-flex flex-wrap gap-1 mb-3">
+              <code class="bg-light p-1 rounded small">m-3</code><code class="bg-light p-1 rounded small">p-4</code>
+              <code class="bg-light p-1 rounded small">d-flex</code><code class="bg-light p-1 rounded small">text-center</code>
+              <code class="bg-light p-1 rounded small">fw-bold</code><code class="bg-light p-1 rounded small">shadow-sm</code>
+              <code class="bg-light p-1 rounded small">rounded</code><code class="bg-light p-1 rounded small">border-0</code>
+            </div>
+            <a href="#" class="btn btn-outline-warning btn-sm">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <nav>
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link">&laquo;</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link">&raquo;</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="sidebar-widget">
+          <h5 class="fw-bold">Cari Artikel</h5>
+          <div class="input-group mt-2">
+            <input type="text" class="form-control" placeholder="Kata kunci...">
+            <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <h5 class="fw-bold">Kategori</h5>
+          <ul class="list-group list-group-flush mt-2">
+            <li class="list-group-item d-flex justify-content-between px-0"><a href="#" class="text-decoration-none">Grid System</a><span class="badge bg-primary rounded-pill">5</span></li>
+            <li class="list-group-item d-flex justify-content-between px-0"><a href="#" class="text-decoration-none">Komponen</a><span class="badge bg-success rounded-pill">8</span></li>
+            <li class="list-group-item d-flex justify-content-between px-0"><a href="#" class="text-decoration-none">Utility Classes</a><span class="badge bg-warning rounded-pill">6</span></li>
+            <li class="list-group-item d-flex justify-content-between px-0"><a href="#" class="text-decoration-none">JavaScript Plugin</a><span class="badge bg-danger rounded-pill">4</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h5 class="fw-bold">Tag Populer</h5>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <a href="#" class="badge bg-secondary text-decoration-none">#bootstrap</a>
+            <a href="#" class="badge bg-secondary text-decoration-none">#css</a>
+            <a href="#" class="badge bg-secondary text-decoration-none">#grid</a>
+            <a href="#" class="badge bg-secondary text-decoration-none">#responsif</a>
+            <a href="#" class="badge bg-secondary text-decoration-none">#webdev</a>
+            <a href="#" class="badge bg-secondary text-decoration-none">#html5</a>
+          </div>
+        </div>
+        <div class="card border-warning">
+          <div class="card-body text-center">
+            <i class="bi bi-person-badge text-warning" style="font-size:2rem"></i>
+            <h6 class="fw-bold mt-2">Haki Eko S</h6>
+            <p class="text-muted small mb-1">NIM: 253307013</p>
+            <p class="text-muted small">Praktikum CSS Framework — Modul 6</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-dark py-4 text-center">
+  <div class="container">
+    <p class="mb-1">Praktikum CSS Framework — Bootstrap 5</p>
+    <p class="mb-0 small"><strong>Nama:</strong> Haki Eko Saputra &nbsp;|&nbsp; <strong>NIM:</strong> 253307013</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praktikum JavaScript - Modul 7</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+  <style>
+    /* ===== GLOBAL ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      color: #333;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: white;
+      padding: 30px 40px;
+      text-align: center;
+    }
+    .site-header h1 { font-size: 2rem; letter-spacing: 2px; }
+    .site-header p { opacity: 0.75; margin-top: 6px; font-size: 0.95rem; }
+
+    /* ===== NAVIGATION ===== */
+    .nav-bar {
+      background: #0f3460;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .nav-bar a {
+      color: #cdd9f5;
+      text-decoration: none;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      border-right: 1px solid #1a3a6e;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-bar a:hover { background: #e94560; color: white; }
+
+    /* ===== MAIN LAYOUT ===== */
+    .container { max-width: 960px; margin: 30px auto; padding: 0 20px; }
+
+    /* ===== CARD ===== */
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      margin-bottom: 35px;
+      overflow: hidden;
+    }
+    .card-header {
+      background: linear-gradient(90deg, #0f3460, #1a3a6e);
+      color: white;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card-header .num {
+      background: #e94560;
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .card-header h2 { font-size: 1.05rem; font-weight: 600; }
+    .card-body { padding: 24px 28px; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      padding: 9px 22px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: #0f3460; color: white; }
+    .btn-primary:hover { background: #1a3a6e; box-shadow: 0 3px 10px rgba(15,52,96,0.4); }
+    .btn-danger  { background: #e94560; color: white; }
+    .btn-danger:hover  { background: #c73652; box-shadow: 0 3px 10px rgba(233,69,96,0.4); }
+    .btn-success { background: #2ecc71; color: white; }
+    .btn-success:hover { background: #27ae60; }
+    .btn-warning { background: #f39c12; color: white; }
+    .btn-warning:hover { background: #d68910; }
+
+    /* ===== FORM FIELDS ===== */
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: #555; }
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 100%; max-width: 320px;
+      padding: 9px 12px;
+      border: 1.5px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: #0f3460; outline: none; }
+
+    /* ===== OUTPUT BOX ===== */
+    .output-box {
+      background: #f8f9ff;
+      border: 1.5px solid #d0d8f0;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      min-height: 38px;
+      font-size: 0.92rem;
+      color: #1a1a2e;
+    }
+
+    /* ===== RADIO GROUP ===== */
+    .radio-group label {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 8px; cursor: pointer;
+      font-size: 0.93rem;
+    }
+    .radio-group input[type="radio"] { accent-color: #0f3460; width: 16px; height: 16px; }
+
+    /* ===== CLOCK ===== */
+    #clock-display {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #0f3460;
+      letter-spacing: 3px;
+      text-align: center;
+      padding: 16px 0 6px;
+    }
+    #date-display {
+      text-align: center;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    /* ===== AJAX/JQUERY EXPLANATION ===== */
+    .explain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .explain-card {
+      background: #f0f4ff;
+      border-left: 4px solid #0f3460;
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+    .explain-card h3 { color: #0f3460; margin-bottom: 8px; font-size: 0.98rem; }
+    .explain-card p { font-size: 0.88rem; line-height: 1.6; color: #444; }
+    .code-box {
+      background: #1a1a2e;
+      color: #a9c9ff;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      margin-top: 14px;
+      overflow-x: auto;
+    }
+    .code-box .kw  { color: #e94560; }
+    .code-box .fn  { color: #f0c040; }
+    .code-box .str { color: #7ec98c; }
+
+    /* ===== JQUERY MENU ===== */
+    #jquery-menu { list-style: none; display: flex; gap: 0; background: #0f3460; border-radius: 8px; overflow: hidden; }
+    #jquery-menu > li { position: relative; }
+    #jquery-menu > li > a {
+      display: block; padding: 12px 20px;
+      color: white; text-decoration: none; font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    #jquery-menu > li > a:hover,
+    #jquery-menu > li.active > a { background: #e94560; }
+    #jquery-menu .submenu {
+      display: none;
+      position: absolute; top: 100%; left: 0;
+      background: #16213e;
+      list-style: none;
+      min-width: 180px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      z-index: 50;
+    }
+    #jquery-menu .submenu li a {
+      display: block; padding: 10px 18px;
+      color: #cdd9f5; text-decoration: none; font-size: 0.87rem;
+      transition: background 0.15s, padding-left 0.15s;
+    }
+    #jquery-menu .submenu li a:hover { background: #e94560; color: white; padding-left: 26px; }
+    #menu-output { margin-top: 14px; }
+
+    /* ===== DIALOG ===== */
+    #basic-dialog, #download-dialog { display: none; }
+    .ui-dialog .ui-dialog-titlebar { background: #0f3460; color: white; }
+    .ui-dialog .ui-dialog-titlebar-close { color: white; }
+    .ui-widget-header { border: none; }
+
+    /* ===== PROGRESSBAR ===== */
+    #progressbar-wrap { margin: 14px 0 8px; }
+    #progress-label {
+      font-size: 0.85rem; color: #555; text-align: center; margin-top: 6px;
+    }
+    .ui-progressbar-value { background: linear-gradient(90deg, #0f3460, #e94560); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .explain-grid { grid-template-columns: 1fr; }
+      #jquery-menu { flex-direction: column; }
+      #jquery-menu .submenu { position: static; box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="site-header">
+  <h1>📜 Praktikum JavaScript</h1>
+  <p>Modul 7 — HTML + CSS + JavaScript + jQuery</p>
+</div>
+
+<nav class="nav-bar">
+  <a href="#s1">1. Alert</a>
+  <a href="#s2">2. Input Data</a>
+  <a href="#s3">3. Confirm Box</a>
+  <a href="#s4">4. Validasi</a>
+  <a href="#s5">5. Radio Box</a>
+  <a href="#s6">6. Password</a>
+  <a href="#s7">7. Real-Time Clock</a>
+  <a href="#s8">8. AJAX & jQuery</a>
+  <a href="#s9">9. jQuery Menu</a>
+  <a href="#s10">10. Basic Dialog</a>
+  <a href="#s11">11. Download Dialog</a>
+</nav>
+
+<div class="container">
+
+  <!-- ==================== 1. ALERT ==================== -->
+  <div class="card" id="s1">
+    <div class="card-header">
+      <div class="num">1</div>
+      <h2>Program Alert</h2>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:14px;font-size:0.9rem;color:#555;">Klik tombol di bawah untuk menampilkan kotak pesan <code>alert()</code>.</p>
+      <button class="btn btn-primary" onclick="jalankanAlert()">🔔 Tampilkan Alert</button>
+      <div class="output-box" id="alert-out">— hasil akan muncul di sini —</div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. INPUT DATA ==================== -->
+  <div class="card" id="s2">
+    <div class="card-header">
+      <div class="num">2</div>
+      <h2>Program Input Data</h2>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:14px;font-size:0.9rem;color:#555;">Gunakan <code>prompt()</code> untuk meminta input dari pengguna.</p>
+      <button class="btn btn-primary" onclick="inputData()">✏️ Masukkan Nama</button>
+      <div class="output-box" id="input-out">— hasil akan muncul di sini —</div>
+    </div>
+  </div>
+
+  <!-- ==================== 3. CONFIRM BOX ==================== -->
+  <div class="card" id="s3">
+    <div class="card-header">
+      <div class="num">3</div>
+      <h2>Program Confirm Box</h2>
+    </div>
+    <div class="card-body">
+      <h3 style="margin-bottom:10px;font-size:1rem;">JavaScript Confirm Box</h3>
+      <button class="btn btn-danger" onclick="myFunction()">🚪 Klik Ini</button>
+      <p id="demo" class="output-box">— hasil akan muncul di sini —</p>
+    </div>
+  </div>
+
+  <!-- ==================== 4. VALIDASI ISIAN ==================== -->
+  <div class="card" id="s4">
+    <div class="card-header">
+      <div class="num">4</div>
+      <h2>Program Validasi Isian</h2>
+    </div>
+    <div class="card-body">
+      <form name="formku" onsubmit="return false;">
+        <div class="form-group">
+          <label for="nama-input">Nama :</label>
+          <input type="text" id="nama-input" name="nama" placeholder="Masukkan nama Anda">
+        </div>
+        <button class="btn btn-primary" onclick="cekNama(document.formku)">📨 Kirim</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 5. RADIO BOX ==================== -->
+  <div class="card" id="s5">
+    <div class="card-header">
+      <div class="num">5</div>
+      <h2>Program Radio Box</h2>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:12px;font-weight:600;">Klik pada musik yang paling Anda sukai:</p>
+      <form name="formTes" method="GET">
+        <div class="radio-group">
+          <label><input type="radio" name="radioMusik" value="Jazz"      onclick="info()"> Jazz</label>
+          <label><input type="radio" name="radioMusik" value="Keroncong" onclick="info()"> Keroncong</label>
+          <label><input type="radio" name="radioMusik" value="Dangdut"   onclick="info()"> Dangdut</label>
+          <label><input type="radio" name="radioMusik" value="Lainnya"   onclick="info()"> Lainnya</label>
+        </div>
+        <hr style="margin:14px 0;border-color:#eee;">
+        <div class="form-group">
+          <label>Info:</label>
+          <input type="text" name="fieldMusik" size="40" placeholder="Pilihan musik akan tampil di sini" style="max-width:300px;">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 6. VERIFIKASI PASSWORD ==================== -->
+  <div class="card" id="s6">
+    <div class="card-header">
+      <div class="num">6</div>
+      <h2>Program Verifikasi Password</h2>
+    </div>
+    <div class="card-body">
+      <form name="formTesPass" action="tesform.htm" method="POST" onsubmit="return false;">
+        <div class="form-group">
+          <label>Password Pengganti :</label>
+          <input type="password" name="password_1" placeholder="Password baru">
+        </div>
+        <div class="form-group">
+          <label>Password Sekali Lagi :</label>
+          <input type="password" name="password_2" placeholder="Ulangi password">
+        </div>
+        <button class="btn btn-warning" name="tombolProses" onclick="cekPassword()">🔐 Proses</button>
+        <div class="output-box" id="pass-out" style="margin-top:12px;">— hasil verifikasi —</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 7. REAL-TIME CLOCK ==================== -->
+  <div class="card" id="s7">
+    <div class="card-header">
+      <div class="num">7</div>
+      <h2>Real-Time Clock</h2>
+    </div>
+    <div class="card-body">
+      <div id="date-display">—</div>
+      <div id="clock-display">00:00:00</div>
+      <p style="text-align:center;font-size:0.82rem;color:#888;margin-top:6px;">⏱ Diperbarui setiap detik secara real-time</p>
+    </div>
+  </div>
+
+  <!-- ==================== 8. AJAX & JQUERY ==================== -->
+  <div class="card" id="s8">
+    <div class="card-header">
+      <div class="num">8</div>
+      <h2>AJAX dan jQuery — Penjelasan & Contoh</h2>
+    </div>
+    <div class="card-body">
+      <div class="explain-grid">
+        <div class="explain-card">
+          <h3>🔄 AJAX</h3>
+          <p><strong>AJAX</strong> (Asynchronous JavaScript And XML) adalah teknik untuk mengirim dan menerima data dari server secara <em>asinkron</em> di latar belakang — tanpa perlu me-reload halaman. Data yang dikirim bisa berformat XML, JSON, HTML, atau teks biasa.</p>
+        </div>
+        <div class="explain-card">
+          <h3>⚡ jQuery</h3>
+          <p><strong>jQuery</strong> adalah library JavaScript yang menyederhanakan manipulasi DOM, penanganan event, animasi, dan permintaan AJAX. Digunakan dengan menyertakan file CDN-nya lalu memanggil fungsi via <code>$()</code> atau <code>jQuery()</code>.</p>
+        </div>
+      </div>
+
+      <div class="code-box">
+<span class="kw">/* Contoh jQuery — ubah teks & warna tombol saat diklik */</span><br>
+<span class="fn">$</span>(<span class="str">"#contohBtn"</span>).<span class="fn">on</span>(<span class="str">"click"</span>, <span class="kw">function</span>() {<br>
+&nbsp;&nbsp;<span class="fn">$</span>(<span class="str">"#contohOutput"</span>).<span class="fn">text</span>(<span class="str">"Halo dari jQuery! 🎉"</span>).<span class="fn">css</span>(<span class="str">"color"</span>, <span class="str">"#e94560"</span>);<br>
+&nbsp;&nbsp;<span class="fn">$</span>(<span class="kw">this</span>).<span class="fn">text</span>(<span class="str">"Sudah diklik!"</span>).<span class="fn">addClass</span>(<span class="str">"btn-danger"</span>);<br>
+});
+      </div>
+
+      <div style="margin-top:16px;">
+        <button class="btn btn-primary" id="contohBtn">🖱️ Klik Contoh jQuery</button>
+        <div class="output-box" id="contohOutput" style="margin-top:10px;">— klik tombol di atas —</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 9. JQUERY MENU ==================== -->
+  <div class="card" id="s9">
+    <div class="card-header">
+      <div class="num">9</div>
+      <h2>Menu dengan jQuery</h2>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:14px;font-size:0.9rem;color:#555;">Hover atau klik item menu untuk membuka submenu (dropdown).</p>
+      <ul id="jquery-menu">
+        <li>
+          <a href="#">🏠 Beranda</a>
+        </li>
+        <li>
+          <a href="#">📚 Materi ▾</a>
+          <ul class="submenu">
+            <li><a href="#">HTML5 Dasar</a></li>
+            <li><a href="#">CSS Lanjut</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">🔧 Praktikum ▾</a>
+          <ul class="submenu">
+            <li><a href="#">Modul 1–3</a></li>
+            <li><a href="#">Modul 4–6</a></li>
+            <li><a href="#">Modul 7–9</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">📞 Kontak</a>
+        </li>
+      </ul>
+      <div class="output-box" id="menu-output">— klik / hover item menu —</div>
+    </div>
+  </div>
+
+  <!-- ==================== 10. BASIC DIALOG ==================== -->
+  <div class="card" id="s10">
+    <div class="card-header">
+      <div class="num">10</div>
+      <h2>Basic Dialog jQuery UI</h2>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:14px;font-size:0.9rem;color:#555;">Klik tombol untuk membuka jendela dialog jQuery UI.</p>
+      <button class="btn btn-primary" id="open-basic-dialog">💬 Buka Dialog</button>
+
+      <!-- Dialog konten (tersembunyi, dikelola jQuery UI) -->
+      <div id="basic-dialog" title="Selamat Datang!">
+        <p>👋 Halo! Ini adalah contoh <strong>Basic Dialog</strong> menggunakan <em>jQuery UI</em>.</p>
+        <p style="margin-top:8px;">Dialog ini bisa dipindah, ditutup, dan dikustomisasi sesuai kebutuhan.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 11. DOWNLOAD DIALOG WITH PROGRESSBAR ==================== -->
+  <div class="card" id="s11">
+    <div class="card-header">
+      <div class="num">11</div>
+      <h2>Download Dialog dengan Progressbar</h2>
+    </div>
+    <div class="card-body">
+      <p style="margin-bottom:14px;font-size:0.9rem;color:#555;">Klik tombol untuk membuka dialog unduhan dengan progress bar animasi.</p>
+      <button class="btn btn-success" id="open-download-dialog">⬇️ Mulai Download</button>
+
+      <!-- Download dialog -->
+      <div id="download-dialog" title="Mengunduh File...">
+        <p id="download-status">Mempersiapkan unduhan...</p>
+        <div id="progressbar-wrap">
+          <div id="myProgressbar"></div>
+        </div>
+        <p id="progress-label">0%</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+<script>
+
+/* ---- 1. ALERT ---- */
+function jalankanAlert() {
+  alert("Hallo !");
+  document.getElementById("alert-out").textContent = "✅ Alert berhasil ditampilkan: \"Hallo !\"";
+}
+
+/* ---- 2. INPUT DATA ---- */
+function inputData() {
+  var nama = prompt("Siapa nama Anda?");
+  if (nama !== null && nama.trim() !== "") {
+    document.getElementById("input-out").textContent = "Hai, " + nama;
+  } else {
+    document.getElementById("input-out").textContent = "⚠️ Tidak ada nama yang dimasukkan.";
+  }
+}
+
+/* ---- 3. CONFIRM BOX ---- */
+function myFunction() {
+  var txt;
+  if (confirm("Apakah Anda akan logout?")) {
+    txt = "Anda mengklik OK";
+  } else {
+    txt = "Anda mengklik Cancel.";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+
+/* ---- 4. VALIDASI ISIAN ---- */
+function cekNama(form) {
+  if (form.elements[0].value == "") {
+    alert("Nama harus dimasukkan");
+    form.nama.focus();
+    form.nama.select();
+    return false;
+  }
+  alert("Terima kasih, " + form.elements[0].value);
+  return true;
+}
+
+/* ---- 5. RADIO BOX ---- */
+function info() {
+  for (var i = 0; i < 4; i++) {
+    if (document.formTes.radioMusik[i].checked) {
+      document.formTes.fieldMusik.value =
+        document.formTes.radioMusik[i].value;
+    }
+  }
+}
+
+/* ---- 6. VERIFIKASI PASSWORD ---- */
+function cekPassword() {
+  var p1 = document.formTesPass.password_1.value;
+  var p2 = document.formTesPass.password_2.value;
+  var out = document.getElementById("pass-out");
+  if (p1 === "" || p2 === "") {
+    out.style.color = "#e94560";
+    out.textContent = "⚠️ Kolom password tidak boleh kosong!";
+    return;
+  }
+  if (p1 !== p2) {
+    alert("Dua password yang Anda masukkan tidak sama");
+    out.style.color = "#e94560";
+    out.textContent = "❌ Password tidak cocok!";
+  } else {
+    out.style.color = "#2ecc71";
+    out.textContent = "✅ Password cocok! Proses berhasil.";
+  }
+}
+
+/* ---- 7. REAL-TIME CLOCK ---- */
+function updateClock() {
+  var now = new Date();
+
+  var hari   = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+  var bulan  = ["Januari","Februari","Maret","April","Mei","Juni",
+                "Juli","Agustus","September","Oktober","November","Desember"];
+
+  var namaHari = hari[now.getDay()];
+  var tgl      = now.getDate();
+  var namaBulan= bulan[now.getMonth()];
+  var tahun    = now.getFullYear();
+
+  var jam    = String(now.getHours()).padStart(2,"0");
+  var menit  = String(now.getMinutes()).padStart(2,"0");
+  var detik  = String(now.getSeconds()).padStart(2,"0");
+
+  document.getElementById("date-display").textContent =
+    namaHari + ", " + tgl + " " + namaBulan + " " + tahun;
+  document.getElementById("clock-display").textContent =
+    jam + " : " + menit + " : " + detik;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+/* ---- 8. CONTOH JQUERY ---- */
+$("#contohBtn").on("click", function() {
+  $("#contohOutput").text("Halo dari jQuery! 🎉").css("color", "#e94560");
+  $(this).text("✅ Sudah diklik!").css("background","#2ecc71");
+});
+
+/* ---- 9. JQUERY MENU ---- */
+$("#jquery-menu > li").hover(
+  function() {
+    $(this).find(".submenu").stop(true, true).slideDown(200);
+    $(this).addClass("active");
+  },
+  function() {
+    $(this).find(".submenu").stop(true, true).slideUp(150);
+    $(this).removeClass("active");
+  }
+);
+$("#jquery-menu a").on("click", function(e) {
+  e.preventDefault();
+  var label = $(this).text().replace("▾","").trim();
+  $("#menu-output").text("📌 Menu dipilih: " + label);
+});
+
+/* ---- 10. BASIC DIALOG ---- */
+$(function() {
+  $("#basic-dialog").dialog({
+    autoOpen: false,
+    modal: true,
+    width: 380,
+    buttons: {
+      "OK, Mengerti!": function() { $(this).dialog("close"); }
+    }
+  });
+  $("#open-basic-dialog").on("click", function() {
+    $("#basic-dialog").dialog("open");
+  });
+});
+
+/* ---- 11. DOWNLOAD DIALOG WITH PROGRESSBAR ---- */
+$(function() {
+  var downloadTimer;
+  var progressVal = 0;
+
+  $("#myProgressbar").progressbar({ value: 0 });
+
+  $("#download-dialog").dialog({
+    autoOpen: false,
+    modal: true,
+    width: 420,
+    closeOnEscape: false,
+    open: function() {
+      // Reset
+      progressVal = 0;
+      $("#myProgressbar").progressbar("value", 0);
+      $("#progress-label").text("0%");
+      $("#download-status").text("Mempersiapkan unduhan...");
+
+      downloadTimer = setInterval(function() {
+        progressVal += 2;
+        $("#myProgressbar").progressbar("value", progressVal);
+        $("#progress-label").text(progressVal + "%");
+
+        if (progressVal <= 30)       $("#download-status").text("Menghubungi server...");
+        else if (progressVal <= 60)  $("#download-status").text("Mengunduh data...");
+        else if (progressVal <= 90)  $("#download-status").text("Menyimpan file...");
+        else                         $("#download-status").text("Hampir selesai...");
+
+        if (progressVal >= 100) {
+          clearInterval(downloadTimer);
+          $("#download-status").text("✅ Unduhan selesai!");
+          $("#progress-label").text("100% — Selesai!");
+          setTimeout(function() {
+            $("#download-dialog").dialog("close");
+          }, 1500);
+        }
+      }, 80);
+    },
+    close: function() {
+      clearInterval(downloadTimer);
+    },
+    buttons: {
+      "Batalkan": function() {
+        clearInterval(downloadTimer);
+        $(this).dialog("close");
+      }
+    }
+  });
+
+  $("#open-download-dialog").on("click", function() {
+    $("#download-dialog").dialog("open");
+  });
+});
+
+</script>
+</body>
+</html>

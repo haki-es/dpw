@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar Flex Box</title>
+    <style>
+        .wadah_flex {
+            display: flex; [span_2](start_span)/* Mengatur property display dengan nilai flex[span_2](end_span) */
+            background-color: lightgrey; [span_3](start_span)/* Menambah warna background sesuai selera[span_3](end_span) */
+            
+            [span_4](start_span)/* Skenario 3: flex-direction[span_4](end_span) */
+            /* flex-direction: row; */ 
+            
+            [span_5](start_span)/* Skenario 4: flex-wrap[span_5](end_span) */
+            /* flex-wrap: wrap; */
+
+            [span_6](start_span)/* Skenario 5: flex-flow[span_6](end_span) */
+            /* flex-flow: row wrap; */
+
+            [span_7](start_span)/* Skenario 6: justify-content[span_7](end_span) */
+            justify-content: center; 
+        }
+
+        [span_8](start_span)/* Melengkapi Style untuk setiap div anak (Skenario 2)[span_8](end_span) */
+        .wadah_flex > div {
+            background-color: #2196F3;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wadah_flex">
+        <div>1</div><div>2</div><div>3</div><div>4</div>
+        <div>5</div><div>6</div><div>7</div><div>8</div>
+        <div>9</div><div>10</div><div>11</div><div>12</div>
+    </div>
+
+    [span_9](start_span)<p>Kesimpulan skenario 1: Properti display: flex membuat elemen anak berjejer secara horizontal secara default[span_9](end_span).</p>
+    [span_10](start_span)<p>Kesimpulan skenario 2: Selector .wadah_flex > div memberikan gaya khusus pada elemen anak langsung di dalam container[span_10](end_span).</p>
+    [span_11](start_span)<p>Kesimpulan skenario 3: flex-direction menentukan arah sumbu utama (row atau column)[span_11](end_span).</p>
+    [span_12](start_span)<p>Kesimpulan skenario 4: flex-wrap memungkinkan item untuk pindah ke baris baru jika ruang tidak cukup[span_12](end_span).</p>
+    [span_13](start_span)<p>Kesimpulan skenario 5: flex-flow adalah shorthand untuk menggabungkan direction dan wrap[span_13](end_span).</p>
+    [span_14](start_span)<p>Kesimpulan skenario 6: justify-content mengatur perataan item di sepanjang sumbu utama (seperti center atau space-between)[span_14](end_span).</p>
+</body>
+</html>
